@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: cinespike-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: FRONTEND_ORIGIN
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama-3.3-70b-versatile
+      - key: SECRET_KEY
+        sync: false
+      - key: UPLOAD_FOLDER
+        value: /var/data/uploads
+      - key: DB_PATH
+        value: /var/data/cinespike.db
+      - key: CHROMA_PATH
+        value: /var/data/chroma_db
+      - key: DATA_DIR
+        value: /var/data/data
+    disk:
+      name: cinespike-data
+      mountPath: /var/data
+      sizeGB: 2

@@ -1,0 +1,19 @@
+# ── Core (required) ───────────────────────────────────────────────────────────
+flask>=3.0.0
+flask-cors>=5.0.0
+werkzeug>=3.0.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+pandas>=2.0.0
+chromadb>=0.5.0
+sentence-transformers>=3.0.0
+tqdm>=4.65.0
+gunicorn>=23.0.0
+
+# ── Optional: CLIP-based automatic tag generation from video ─────────────────
+# Install these if you want automatic video analysis (requires ~3GB disk, no GPU needed)
+# Comment them out if you prefer manual tag selection.
+torch>=2.2.0
+transformers>=4.40.0
+Pillow>=10.0.0
+opencv-python>=4.8.0
